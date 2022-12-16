@@ -3,8 +3,9 @@ import MyPage from './MyPage'
 import Table from './Table'
 
 class App extends Component {
-  state = {
-    characters: [
+  
+  render() {
+    const characters = [
       {
         name: 'Charlie',
         job: 'Janitor',
@@ -21,22 +22,10 @@ class App extends Component {
         name: 'Dennis',
         job: 'Bartender',
       },
-    ],
-  }
-  removeCharacter = (index) => {
-    const { characters } = this.state
-  
-    this.setState({
-      characters: characters.filter((character, i) => {
-        return i !== index
-      }),
-    })
-  }
-  render() {
-    const { characters } = this.state
+    ]
     return (
       <div className="container">
-        <Table characterData={characters} removeCharacter={this.removeCharacter} />
+        <Table characterData={characters} />
         <MyPage />
       </div>
     )
